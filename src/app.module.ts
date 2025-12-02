@@ -8,7 +8,6 @@ import { BookService } from './book/book.service';
 import { BookModule } from './book/book.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { join } from 'path';
 import { AppResolver } from './app.resolver';
 
 
