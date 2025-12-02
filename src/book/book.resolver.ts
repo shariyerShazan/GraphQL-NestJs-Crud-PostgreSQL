@@ -15,7 +15,7 @@ export class BookResolver {
   }
 
   @Query(() => Book, { nullable: true })
-  findBookById(@Args('id', { type: () => Int }) id: number) {
+  findBookById(@Args('id', { type: () => Int }) id: string) {
     return this.bookService.findOne(id);
   }
 
@@ -26,14 +26,14 @@ export class BookResolver {
 
   @Mutation(() => Book)
   updateBook(
-    @Args('id', { type: () => Int }) id: number,
+    @Args('id', { type: () => Int }) id: string,
     @Args('data') data: UpdateBookInput,
   ) {
     return this.bookService.update(id, data);
   }
 
   @Mutation(() => Book)
-  deleteBook(@Args('id', { type: () => Int }) id: number) {
+  deleteBook(@Args('id', { type: () => Int } ) id: string) {
     return this.bookService.delete(id);
   }
 }

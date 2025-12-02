@@ -23,7 +23,7 @@ export class BookService {
     throw new BadRequestException('Something went wrong');
   }
 
-  private async getBookOrThrow(id: number) {
+  private async getBookOrThrow(id: string) {
     const book = await this.prisma.book.findUnique({ where: { id } });
 
     if (!book) {
@@ -32,7 +32,7 @@ export class BookService {
 
     return book;
   }
-
+ 
 
   async findAll() {
     try {
@@ -45,7 +45,7 @@ export class BookService {
   }
 
 
-  async findOne(id: number) {
+  async findOne(id: string) {
     try {
       return await this.getBookOrThrow(id);
     } catch (error) {
@@ -62,7 +62,7 @@ export class BookService {
   }
 
 
-  async update(id: number, data: UpdateBookInput) {
+  async update(id: string, data: UpdateBookInput) {
     try {
       await this.getBookOrThrow(id); // ensures ID exists first
 
@@ -76,7 +76,7 @@ export class BookService {
   }
 
 
-  async delete(id: number ) {
+  async delete(id: string) {
     try {
       await this.getBookOrThrow(id); // validates ID exists
 
